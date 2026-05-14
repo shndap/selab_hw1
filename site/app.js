@@ -131,39 +131,39 @@ const commits = [
 
 const faqItems = [
   {
-    question: '.git چیست و چه اطلاعاتی ذخیره می‌کند؟',
+    question: 'What is the `.git` folder, what does it store, and how is it created?',
     answer:
-      '.git پوشه‌ی metadata مخزن Git است. این پوشه objectها، branch referenceها، HEAD، تنظیمات، index و اطلاعات لازم برای history را نگه می‌دارد. با `git init` ساخته می‌شود.',
+      '`.git` is the internal Git metadata directory. It stores objects, references, `HEAD`, configuration, the index, and history data. It is created with `git init`.',
   },
   {
-    question: 'atomic بودن در atomic commit و atomic pull-request یعنی چه؟',
+    question: 'What does atomic mean in an atomic commit and an atomic pull request?',
     answer:
-      'یعنی هر commit یا PR فقط یک تغییر منطقی کامل را حمل کند. یا همه‌ی اجزای آن با هم merge/review شوند یا اصلاً وارد نشوند. این کار rollback و review را ساده‌تر می‌کند.',
+      'Atomic means one logical change per commit or pull request. The change should be complete, self-contained, and easy to review or revert.',
   },
   {
-    question: 'تفاوت fetch، pull، merge، rebase و cherry-pick چیست؟',
+    question: 'What is the difference between fetch, pull, merge, rebase, and cherry-pick?',
     answer:
-      'fetch فقط داده‌ها را از remote می‌گیرد. pull برابر fetch + merge/rebase است. merge دو history را به هم وصل می‌کند. rebase commitها را روی پایه‌ای جدید بازنویسی می‌کند. cherry-pick یک commit مشخص را به شاخه‌ی فعلی منتقل می‌کند.',
+      'fetch downloads remote updates without changing the local branch. pull is usually fetch plus merge, or sometimes fetch plus rebase. merge combines two histories and may create a merge commit. rebase rewrites commits onto a new base. cherry-pick applies one specific commit onto the current branch.',
   },
   {
-    question: 'تفاوت reset، revert، restore، switch و checkout چیست؟',
+    question: 'What is the difference between reset, revert, restore, switch, and checkout?',
     answer:
-      'reset اشاره‌گرها و در صورت نیاز working tree را جابه‌جا می‌کند. revert یک commit معکوس می‌سازد. restore فایل‌ها را از index یا HEAD برمی‌گرداند. switch برای جابه‌جایی branch است. checkout فرمان قدیمی‌تر و چندمنظوره‌ای است که هر دو کار branch/file را انجام می‌داد.',
+      'reset moves `HEAD` and, depending on mode, the index and working tree. revert creates a new commit that undoes a previous commit. restore brings files back from the index or `HEAD`. switch moves between branches. checkout is the older multi-purpose command for switching branches and restoring files.',
   },
   {
-    question: 'stage یا index چیست و stash چه می‌کند؟',
+    question: 'What is the stage or index, and what does stash do?',
     answer:
-      'stage یا index ناحیه‌ی میانی بین working tree و commit است. stash تغییرات ثبت‌نشده را موقتاً کنار می‌گذارد تا بتوانی branch یا context را عوض کنی و بعداً آن‌ها را برگردانی.',
+      'The stage or index is the middle area between the working tree and a commit. `stash` temporarily stores uncommitted changes so you can switch context and restore them later.',
   },
   {
-    question: 'snapshot یعنی چه و چه ارتباطی با commit دارد؟',
+    question: 'What is a snapshot, and how is it related to a commit?',
     answer:
-      'snapshot یعنی تصویر کامل وضعیت فایل‌ها در یک لحظه. هر commit در Git یک snapshot از tree پروژه را نگه می‌دارد. توضیح رسمی Git: https://git-scm.com/book/en/v2/Git-Internals-Git-Objects',
+      'A snapshot is a full picture of the project files at a specific moment. Each Git commit stores a snapshot of the project tree. Official Git reference: https://git-scm.com/book/en/v2/Git-Internals-Git-Objects',
   },
   {
-    question: 'local repository و remote repository چه تفاوتی دارند؟',
+    question: 'What is the difference between a local repository and a remote repository?',
     answer:
-      'local repository روی سیستم خودت است و برای کار روزمره استفاده می‌شود. remote repository روی GitHub یا سرور دیگر قرار دارد و برای backup، collaboration و deployment کاربرد دارد.',
+      'A local repository lives on your machine and is used for day-to-day development. A remote repository lives on GitHub or another server and is used for collaboration, backup, and deployment.',
   },
 ];
 
