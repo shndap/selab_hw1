@@ -1,4 +1,4 @@
-const pagesUrl = 'https://<username>.github.io/selab-hw1/';
+const pagesUrl = 'https://shndap.github.io/selab_hw1/';
 
 const commits = [
   {
@@ -234,6 +234,7 @@ function setTab(name) {
     const active = button.dataset.tab === name;
     button.classList.toggle('is-active', active);
     button.setAttribute('aria-selected', String(active));
+    button.tabIndex = active ? 0 : -1;
   });
 
   panels.forEach((panel) => {
@@ -243,6 +244,12 @@ function setTab(name) {
 
 tabButtons.forEach((button) => {
   button.addEventListener('click', () => setTab(button.dataset.tab));
+  button.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setTab(button.dataset.tab);
+    }
+  });
 });
 
 copyButton?.addEventListener('click', async () => {
@@ -250,7 +257,7 @@ copyButton?.addEventListener('click', async () => {
     await navigator.clipboard.writeText(pagesUrl);
     copyStatus.textContent = 'GitHub Pages URL copied to clipboard.';
   } catch (error) {
-    copyStatus.textContent = `Pages URL: ${pagesUrl}`;
+    copyStatus.textContent = `Clipboard unavailable. Pages URL: ${pagesUrl}`;
   }
 });
 
