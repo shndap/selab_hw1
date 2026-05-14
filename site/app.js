@@ -89,7 +89,7 @@ const commits = [
     branch: 'main',
     title: 'Publish README report',
     hash: 'c5d6e7f',
-    note: 'write the implementation report and Git answers for the lab',
+    note: 'write the implementation report and Git answers for the submission package',
   },
   {
     branch: 'dev',
