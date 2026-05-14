@@ -5,7 +5,7 @@ const commits = [
     branch: 'main',
     title: 'Bootstrap static repository',
     hash: 'a1b2c3d',
-    note: 'initial scaffold and repository hygiene',
+    note: 'initial scaffold, repository hygiene and branch planning',
   },
   {
     branch: 'dev',
@@ -89,7 +89,7 @@ const commits = [
     branch: 'main',
     title: 'Publish README report',
     hash: 'c5d6e7f',
-    note: 'write the implementation report and Git answers',
+    note: 'write the implementation report and Git answers for the submission',
   },
   {
     branch: 'dev',
@@ -257,4 +257,3 @@ copyButton?.addEventListener('click', async () => {
 renderTimeline();
 renderFaq();
 setTab('overview');
-
