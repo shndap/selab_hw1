@@ -9,7 +9,6 @@ This repository contains a static frontend for the Git and GitHub Pages lab. It 
 - `site/index.html`: page structure and main sections
 - `site/styles.css`: layout, cards, and UI states
 - `site/app.js`: data rendering, tabs, timeline, and FAQ answers
-- `graph.html`: HTML branch graph used in the site
 - `.github/workflows/deploy.yml`: GitHub Pages deployment workflow
 
 ## Implementation Report
@@ -18,7 +17,7 @@ This repository contains a static frontend for the Git and GitHub Pages lab. It 
 
 - `main`: protected release branch
 - `dev`: integration branch for day-to-day work
-- `feature/layout`: layout, sidebar, cards, and visual graph work
+- `feature/layout`: layout, sidebar, and cards work
 - `feature/content`: report text, timeline content, and FAQ answers
 - `hotfix/deploy`: Pages deployment and publishing notes
 
@@ -35,25 +34,24 @@ The repository history contains more than 20 meaningful commits. The main ones a
 
 1. bootstrap static repository with branch planning and structure
 2. add dashboard shell
-3. add project graph
-4. refine cards and spacing
-5. write branch strategy copy
-6. add commit timeline data
-7. add answer set
-8. wire tab switching
-9. render FAQ cards
-10. fix Pages artifact path
-11. tune accessibility labels
-12. resolve first merge conflict
-13. resolve second merge conflict
-14. protect release branch
-15. publish README report with Git answers
-16. final visual polish
-17. balance sidebar contrast
-18. add Pages URL placeholder
-19. validate static file paths
-20. finalize submission copy
-21. ship the static frontend
+3. refine cards and spacing
+4. write branch strategy copy
+5. add commit timeline data
+6. add answer set
+7. wire tab switching
+8. render FAQ cards
+9. fix Pages artifact path
+10. tune accessibility labels
+11. resolve first merge conflict
+12. resolve second merge conflict
+13. protect release branch
+14. publish README report with Git answers
+15. final visual polish
+16. balance sidebar contrast
+17. add Pages URL placeholder
+18. validate static file paths
+19. finalize submission copy
+20. ship the static frontend
 
 ## Requirement Audit
 
