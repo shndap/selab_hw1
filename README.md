@@ -33,7 +33,7 @@
 
 commitهای زیر به‌عنوان تغییرات معنادار در مسیر پیاده‌سازی در نظر گرفته شده‌اند:
 
-1. bootstrap static repository with branch planning
+1. bootstrap static repository with branch planning and structure
 2. add dashboard shell
 3. add project graph
 4. refine cards and spacing
