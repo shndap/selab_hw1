@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Git branch graph</title>
+  <desc id="desc">A simple graph showing main, dev, feature and hotfix branches merging into the main line.</desc>
+  <rect width="640" height="320" rx="20" fill="#0f1d32" />
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M82 54h420" stroke="#28415f" stroke-width="6" />
+    <path d="M82 94h140c26 0 42 14 58 30l42 42c13 13 28 20 46 20h84c27 0 43 15 58 31l34 34" stroke="#0f766e" stroke-width="6" />
+    <path d="M82 134h120c22 0 35 10 49 24l44 44c14 14 31 20 52 20h86c24 0 41 11 57 27l34 34" stroke="#b45309" stroke-width="6" />
+    <path d="M82 176h160c18 0 34 7 48 21l40 40c15 15 31 22 52 22h80c23 0 40 10 57 27l30 30" stroke="#1d4ed8" stroke-width="6" />
+    <path d="M82 218h110c28 0 45 16 62 33l34 34c16 16 32 23 52 23h116c24 0 39 13 54 28l44 44" stroke="#7c3aed" stroke-width="6" />
+  </g>
+  <g fill="#eef4ff">
+    <circle cx="82" cy="54" r="9" />
+    <circle cx="152" cy="54" r="9" />
+    <circle cx="226" cy="54" r="9" />
+    <circle cx="300" cy="54" r="9" />
+    <circle cx="374" cy="54" r="9" />
+    <circle cx="448" cy="54" r="9" />
+  </g>
+  <g fill="#0f766e">
+    <circle cx="82" cy="94" r="9" />
+    <circle cx="174" cy="138" r="9" />
+    <circle cx="294" cy="194" r="9" />
+    <circle cx="418" cy="236" r="9" />
+    <circle cx="512" cy="284" r="9" />
+  </g>
+  <g fill="#b45309">
+    <circle cx="82" cy="134" r="9" />
+    <circle cx="170" cy="160" r="9" />
+    <circle cx="282" cy="206" r="9" />
+    <circle cx="402" cy="244" r="9" />
+    <circle cx="494" cy="282" r="9" />
+  </g>
+  <g fill="#1d4ed8">
+    <circle cx="82" cy="176" r="9" />
+    <circle cx="194" cy="198" r="9" />
+    <circle cx="314" cy="232" r="9" />
+    <circle cx="430" cy="262" r="9" />
+    <circle cx="548" cy="284" r="9" />
+  </g>
+  <g fill="#7c3aed">
+    <circle cx="82" cy="218" r="9" />
+    <circle cx="182" cy="250" r="9" />
+    <circle cx="302" cy="282" r="9" />
+    <circle cx="412" cy="292" r="9" />
+    <circle cx="530" cy="292" r="9" />
+  </g>
+  <g stroke="#c8d7eb" stroke-width="2.5" stroke-dasharray="4 8" opacity="0.8">
+    <path d="M520 118v48" />
+    <path d="M470 202v34" />
+    <path d="M438 244v28" />
+  </g>
+  <text x="40" y="36" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">main</text>
+  <text x="40" y="78" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">dev</text>
+  <text x="40" y="120" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">feature/layout</text>
+  <text x="40" y="164" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">feature/content</text>
+  <text x="40" y="208" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">hotfix/deploy</text>
+</svg>

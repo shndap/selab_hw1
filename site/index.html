@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Git Lab Dashboard | SELab HW1</title>
+    <meta
+      name="description"
+      content="A static frontend dashboard for the Git and GitHub Pages laboratory assignment."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <header class="brand">
+          <p class="eyebrow">SELab HW1</p>
+          <h1>Git Lab Dashboard</h1>
+          <p class="brand-copy">
+            یک فرانت‌اند ایستا برای جمع‌بندی فرایند Git، برنچ‌ها، conflictها و
+            استقرار خودکار روی GitHub Pages.
+          </p>
+        </header>
+
+        <figure class="graph-card">
+          <img
+            src="./assets/branch-graph.svg"
+            alt="نمودار شاخه‌های Git و mergeها"
+          />
+          <figcaption>نقشه‌ی شاخه‌ها، mergeها و hotfixهای اصلی</figcaption>
+        </figure>
+
+        <section class="meta-stack" aria-label="Project summary">
+          <div class="meta-item">
+            <span>Stack</span>
+            <strong>Pure HTML, CSS, JS</strong>
+          </div>
+          <div class="meta-item">
+            <span>Branches</span>
+            <strong>main, dev, feature/*, hotfix/*</strong>
+          </div>
+          <div class="meta-item">
+            <span>Conflicts resolved</span>
+            <strong>2+</strong>
+          </div>
+          <div class="meta-item">
+            <span>Deploy target</span>
+            <strong>GitHub Pages</strong>
+          </div>
+        </section>
+
+        <button class="copy-button" type="button" data-copy-url>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M16 3H8a2 2 0 0 0-2 2v10h2V5h8V3Zm3 4H10a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Zm0 12H10V9h9v10Z" />
+          </svg>
+          <span>Copy GitHub Pages URL</span>
+        </button>
+        <p class="copy-status" data-copy-status aria-live="polite"></p>
+      </aside>
+
+      <main class="workspace">
+        <header class="toolbar">
+          <div class="toolbar-copy">
+            <p class="eyebrow">Repository report</p>
+            <h2>فرایند پیاده‌سازی، branchها و پاسخ سؤال‌ها</h2>
+          </div>
+
+          <nav class="tabs" aria-label="Main views">
+            <button class="tab is-active" type="button" data-tab="overview">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 4h7v7H4V4Zm9 0h7v4h-7V4ZM4 13h7v7H4v-7Zm9 5h7v2h-7v-2Zm0-5h7v2h-7v-2Z" />
+              </svg>
+              <span>نمای کلی</span>
+            </button>
+            <button class="tab" type="button" data-tab="timeline">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 3v18m0 0-3-3m3 3 3-3M5 6h4m6 0h4M5 18h4m6 0h4" />
+              </svg>
+              <span>کامیت‌ها</span>
+            </button>
+            <button class="tab" type="button" data-tab="questions">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 18h.01M9.09 9a3 3 0 1 1 5.83 1c0 2-3 2-3 5m0-10a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z" />
+              </svg>
+              <span>پرسش‌ها</span>
+            </button>
+            <button class="tab" type="button" data-tab="report">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 3h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm8 1.5V9h4.5" />
+              </svg>
+              <span>گزارش</span>
+            </button>
+          </nav>
+        </header>
+
+        <section class="panel is-visible" data-panel="overview">
+          <div class="section-head">
+            <h3>خلاصه‌ی پروژه</h3>
+            <p>
+              این صفحه برای گزارش آزمایش Git، توضیح branchها، conflictها و
+              لینک استقرار ساخته شده است.
+            </p>
+          </div>
+
+          <div class="cards">
+            <article class="card accent-teal">
+              <span class="card-label">Main branch</span>
+              <strong>protected via pull request</strong>
+              <p>ادغام نهایی فقط از طریق PR و بعد از بررسی merge انجام می‌شود.</p>
+            </article>
+            <article class="card accent-amber">
+              <span class="card-label">Development branch</span>
+              <strong>dev integration flow</strong>
+              <p>ویژگی‌ها ابتدا روی شاخه‌ی dev جمع می‌شوند و بعد به main می‌روند.</p>
+            </article>
+            <article class="card accent-blue">
+              <span class="card-label">Workflow</span>
+              <strong>GitHub Actions Pages deploy</strong>
+              <p>فایل‌های static از پوشه‌ی site/ به GitHub Pages ارسال می‌شوند.</p>
+            </article>
+          </div>
+
+          <div class="layout-grid">
+            <section class="stack">
+              <div class="section-head compact">
+                <h4>نقشه‌ی branchها</h4>
+                <p>هر شاخه یک مسئولیت واضح دارد و تداخل را کم می‌کند.</p>
+              </div>
+              <ul class="branch-list">
+                <li>
+                  <span class="branch-chip main">main</span>
+                  <p>نسخه‌ی پایدار و protected برای انتشار.</p>
+                </li>
+                <li>
+                  <span class="branch-chip dev">dev</span>
+                  <p>شاخه‌ی ادغام کارهای روزمره و آماده‌سازی release.</p>
+                </li>
+                <li>
+                  <span class="branch-chip feature">feature/layout</span>
+                  <p>ساختار صفحه، sidebar، cards و visual graph.</p>
+                </li>
+                <li>
+                  <span class="branch-chip feature">feature/content</span>
+                  <p>محتوای گزارش، answerها و timelineهای متنی.</p>
+                </li>
+                <li>
+                  <span class="branch-chip hotfix">hotfix/deploy</span>
+                  <p>رفع نهایی مسیر deploy و جزئیات GitHub Pages.</p>
+                </li>
+              </ul>
+            </section>
+
+            <section class="stack">
+              <div class="section-head compact">
+                <h4>استقرار</h4>
+                <p>Workflow آماده برای deploy خودکار بعد از push به main.</p>
+              </div>
+              <ol class="steps">
+                <li>Checkout کد با actions/checkout</li>
+                <li>تنظیم GitHub Pages با actions/configure-pages</li>
+                <li>Upload پوشه‌ی site به عنوان artifact</li>
+                <li>Deploy با actions/deploy-pages</li>
+              </ol>
+            </section>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="timeline">
+          <div class="section-head">
+            <h3>Timeline کامیت‌ها</h3>
+            <p>
+              این فهرست خلاصه‌ی commitهای معنادار پروژه است. هر item یک تغییر
+              مشخص در مسیر پیاده‌سازی را نشان می‌دهد.
+            </p>
+          </div>
+          <ul class="timeline" data-commit-list></ul>
+        </section>
+
+        <section class="panel" data-panel="questions">
+          <div class="section-head">
+            <h3>پاسخ پرسش‌ها</h3>
+            <p>پاسخ‌ها به‌صورت خلاصه و کاربردی نوشته شده‌اند.</p>
+          </div>
+          <div class="faq" data-faq-list></div>
+        </section>
+
+        <section class="panel" data-panel="report">
+          <div class="section-head">
+            <h3>گزارش اجرایی</h3>
+            <p>این بخش جمع‌بندی نهایی برای README و تحویل پروژه است.</p>
+          </div>
+          <div class="report-grid">
+            <article class="report-card">
+              <h4>فایل‌های اصلی</h4>
+              <p>
+                <code dir="ltr">site/index.html</code>,
+                <code dir="ltr">site/styles.css</code>,
+                <code dir="ltr">site/app.js</code> و
+                <code dir="ltr">site/assets/branch-graph.svg</code>.
+              </p>
+            </article>
+            <article class="report-card">
+              <h4>Branch strategy</h4>
+              <p>
+                توسعه از شاخه‌ی dev جلو رفت، featureها جدا شدند و hotfix برای
+                اصلاح مسیر deploy استفاده شد.
+              </p>
+            </article>
+            <article class="report-card">
+              <h4>Conflict handling</h4>
+              <p>
+                دو conflict در زمان merge به‌صورت دستی و با حفظ intent هر شاخه
+                حل شد.
+              </p>
+            </article>
+            <article class="report-card">
+              <h4>GitHub Pages</h4>
+              <p>
+                آدرس نهایی بعد از push و فعال‌سازی Pages روی repository منتشر
+                می‌شود.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
