@@ -9,7 +9,7 @@ This repository contains a static frontend for the Git and GitHub Pages lab. It 
 - `site/index.html`: page structure and main sections
 - `site/styles.css`: layout, cards, and UI states
 - `site/app.js`: data rendering, tabs, timeline, and FAQ answers
-- `site/assets/branch-graph.svg`: visual branch graph
+- `graph.html`: HTML branch graph used in the site
 - `.github/workflows/deploy.yml`: GitHub Pages deployment workflow
 
 ## Implementation Report

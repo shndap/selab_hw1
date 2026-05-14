@@ -107,12 +107,22 @@ code {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
+  overflow: hidden;
 }
 
 .graph-card figcaption {
   margin-top: 0.65rem;
   font-size: 0.92rem;
   color: #c3d4ea;
+}
+
+.graph-frame {
+  display: block;
+  width: 100%;
+  height: 340px;
+  border: 0;
+  border-radius: 6px;
+  background: #0f1d32;
 }
 
 .meta-stack {
