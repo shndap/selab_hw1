@@ -250,7 +250,7 @@ copyButton?.addEventListener('click', async () => {
     await navigator.clipboard.writeText(pagesUrl);
     copyStatus.textContent = 'GitHub Pages URL copied to clipboard.';
   } catch (error) {
-    copyStatus.textContent = `Pages URL: ${pagesUrl}`;
+    copyStatus.textContent = `Clipboard unavailable. Pages URL: ${pagesUrl}`;
   }
 });
 
