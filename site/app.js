@@ -1,4 +1,4 @@
-const pagesUrl = 'https://<username>.github.io/selab-hw1/';
+const pagesUrl = 'https://shndap.github.io/selab_hw1/';
 
 const commits = [
   {
