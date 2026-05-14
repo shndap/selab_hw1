@@ -45,10 +45,14 @@
     <circle cx="412" cy="292" r="9" />
     <circle cx="530" cy="292" r="9" />
   </g>
+  <g stroke="#c8d7eb" stroke-width="2.5" stroke-dasharray="4 8" opacity="0.8">
+    <path d="M520 118v48" />
+    <path d="M470 202v34" />
+    <path d="M438 244v28" />
+  </g>
   <text x="40" y="36" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">main</text>
   <text x="40" y="78" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">dev</text>
   <text x="40" y="120" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">feature/layout</text>
   <text x="40" y="164" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">feature/content</text>
   <text x="40" y="208" fill="#9fb6d6" font-family="system-ui, sans-serif" font-size="18">hotfix/deploy</text>
 </svg>
-
