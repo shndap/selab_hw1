@@ -15,9 +15,9 @@ const commits = [
   },
   {
     branch: 'feature/layout',
-    title: 'Add project graph',
+    title: 'Add layout scaffolding',
     hash: 'c3d4e5f',
-    note: 'ship the visual branch map as an SVG asset',
+    note: 'ship the page shell and supporting layout structure',
   },
   {
     branch: 'feature/layout',
