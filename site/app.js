@@ -1,133 +1,95 @@
 const pagesUrl = 'https://shndap.github.io/selab_hw1/';
 
-const commits = [
-  {
-    branch: 'main',
-    title: 'Bootstrap static repository',
-    hash: 'a1b2c3d',
-    note: 'initial scaffold, repository hygiene and branch planning',
-  },
-  {
-    branch: 'dev',
-    title: 'Add dashboard shell',
-    hash: 'b2c3d4e',
-    note: 'create the workspace, sidebar and tab container',
-  },
-  {
-    branch: 'feature/layout',
-    title: 'Add layout scaffolding',
-    hash: 'c3d4e5f',
-    note: 'ship the page shell and supporting layout structure',
-  },
-  {
-    branch: 'feature/layout',
-    title: 'Refine cards and spacing',
-    hash: 'd4e5f6a',
-    note: 'tighten grid rhythm and card sizing',
-  },
-  {
-    branch: 'feature/content',
-    title: 'Write branch strategy copy',
-    hash: 'e5f6a7b',
-    note: 'document dev, feature and hotfix responsibilities',
-  },
-  {
-    branch: 'feature/content',
-    title: 'Add commit timeline data',
-    hash: 'f6a7b8c',
-    note: 'describe the 20+ meaningful commits used in the lab',
-  },
-  {
-    branch: 'feature/content',
-    title: 'Add answer set',
-    hash: 'a7b8c9d',
-    note: 'prepare the README questions and their explanations',
-  },
-  {
-    branch: 'dev',
-    title: 'Wire tab switching',
-    hash: 'b8c9d0e',
-    note: 'toggle overview, timeline, questions and report views',
-  },
-  {
-    branch: 'dev',
-    title: 'Render FAQ cards',
-    hash: 'c9d0e1f',
-    note: 'generate the question answers from data instead of hardcoding',
-  },
-  {
-    branch: 'hotfix/deploy',
-    title: 'Fix Pages artifact path',
-    hash: 'd0e1f2a',
-    note: 'point GitHub Actions at the site/ directory',
-  },
-  {
-    branch: 'hotfix/deploy',
-    title: 'Tune accessibility labels',
-    hash: 'e1f2a3b',
-    note: 'make button labels and status messages explicit',
-  },
-  {
-    branch: 'main',
-    title: 'Resolve first merge conflict',
-    hash: 'f2a3b4c',
-    note: 'combine layout and content work in the same tree',
-  },
-  {
-    branch: 'main',
-    title: 'Resolve second merge conflict',
-    hash: 'a3b4c5d',
-    note: 'adjust README wording and workflow details',
-  },
-  {
-    branch: 'main',
-    title: 'Protect release branch',
-    hash: 'b4c5d6e',
-    note: 'document the PR-only merge policy for main',
-  },
-  {
-    branch: 'main',
-    title: 'Publish README report',
-    hash: 'c5d6e7f',
-    note: 'write the implementation report and Git answers for the submission package',
-  },
-  {
-    branch: 'dev',
-    title: 'Final visual polish',
-    hash: 'd6e7f8a',
-    note: 'polish spacing, borders and state colors',
-  },
-  {
-    branch: 'feature/layout',
-    title: 'Balance sidebar contrast',
-    hash: 'e7f8a9b',
-    note: 'keep the sidebar readable without overpowering the page',
-  },
-  {
-    branch: 'feature/content',
-    title: 'Add Pages URL placeholder',
-    hash: 'f8a9b0c',
-    note: 'show where the live GitHub Pages link will live',
-  },
-  {
-    branch: 'hotfix/deploy',
-    title: 'Validate static file paths',
-    hash: 'a9b0c1d',
-    note: 'check relative links after the deployment change',
-  },
-  {
-    branch: 'main',
-    title: 'Finalize submission copy',
-    hash: 'b0c1d2e',
-    note: 'lock the final reporting text and add the repo summary',
-  },
-  {
-    branch: 'main',
-    title: 'Ship the static frontend',
-    hash: 'c1d2e3f',
-    note: 'final state ready for push and GitHub Pages deployment',
-  },
-];
+async function fetchAllBranchCommits(repoUrl) {
+  const match = repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+
+  if (!match) {
+    throw new Error('Invalid GitHub repository URL');
+  }
+
+  const owner = match[1];
+  const repo = match[2].replace('.git', '');
+
+  // Optional GitHub token to avoid rate limits
+  const headers = {
+    Accept: 'application/vnd.github+json',
+    // Authorization: `Bearer YOUR_GITHUB_TOKEN`,
+  };
+
+  // 1. Fetch all branches
+  const branchResponse = await fetch(
+    `https://api.github.com/repos/${owner}/${repo}/branches?per_page=100`,
+    { headers }
+  );
+
+  if (!branchResponse.ok) {
+    throw new Error('Failed to fetch branches');
+  }
+
+  const branches = await branchResponse.json();
+
+  // 2. Fetch commits for every branch
+  const commitPromises = branches.map(async (branchObj) => {
+    const branch = branchObj.name;
+
+    const commitResponse = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&per_page=100`,
+      { headers }
+    );
+
+    if (!commitResponse.ok) {
+      return [];
+    }
+
+    const commits = await commitResponse.json();
+
+    return commits.map((commit) => ({
+      branch,
+      title: commit.commit.message.split('\n')[0],
+      hash: commit.sha.substring(0, 7),
+      note:
+        commit.commit.message
+          .split('\n')
+          .slice(1)
+          .join(' ')
+          .trim() ||
+        `Committed by ${commit.commit.author.name}`,
+
+      author: commit.commit.author.name,
+      date: commit.commit.author.date,
+      url: commit.html_url,
+    }));
+  });
+
+  // 3. Merge all branch commits
+  const allCommits = (await Promise.all(commitPromises)).flat();
+
+  // 4. Remove duplicates (same commit can exist in multiple branches)
+  const uniqueCommits = Array.from(
+    new Map(allCommits.map((c) => [c.hash, c])).values()
+  );
+
+  // 5. Sort newest first
+  uniqueCommits.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
+  return uniqueCommits;
+}
+
+let commits = [];
+
+async function init() {
+  commits = await fetchAllBranchCommits(
+    'https://github.com/shndap/selab_hw1'
+  );
+
+  console.log(commits);
+
+  renderTimeline();
+  renderFaq();
+  setTab('overview');
+}
 
 const faqItems = [
   {
@@ -261,6 +223,4 @@ copyButton?.addEventListener('click', async () => {
   }
 });
 
-renderTimeline();
-renderFaq();
-setTab('overview');
+init();
